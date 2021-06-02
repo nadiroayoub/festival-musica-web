@@ -1,0 +1,30 @@
+{
+  "name": "festivalmusica_inicio",
+  "version": "1.0.0",
+  "description": "Aprendiendo Gulp y sass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadiroayoub/festival-musica-web.git"
+  },
+  "keywords": [
+    "SASS",
+    "Gulp",
+    "Web",
+    "Design",
+    "HTML5"
+  ],
+  "author": "Nadir Ayoub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadiroayoub/festival-musica-web/issues"
+  },
+  "homepage": "https://github.com/nadiroayoub/festival-musica-web#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0"
+  }
+}
