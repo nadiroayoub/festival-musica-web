@@ -5,30 +5,28 @@ const notify = require('gulp-notify');
 const webp = require('gulp-webp');
 const concat = require('gulp-concat'); 
 
+// Utilidades css
+const autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+
 const paths = {
     imagenes: 'src/img/**/*',
     scss: './src/scss/**/*.scss',
     js: './src/js/**/*.js'
 }
 // Funciones
-function css(done){
+function css(){
     
     return src(paths.scss)
-            .pipe( sass({
-                outputStyle: 'expanded'
-            }) )
+            .pipe(sourcemaps.init())
+            .pipe( sass() )
+            .pipe(postcss([autoprefixer(), cssnano()]))
+            .pipe(sourcemaps.write(''))
             .pipe( dest('./build/css') )
-    done();
+}
 
-}
-function minificarcss(){
-    return src(paths.scss)
-            .pipe( sass({
-                outputStyle: 'compressed'
-            }) )
-            .pipe( dest('./build/css') )
-    done();
-}
 
 function javascript(){
     return src(paths.js)
@@ -55,7 +53,6 @@ function watchArchivos(){
     watch( paths.js, javascript);
 }
 exports.css = css;
-exports.minificarcss = minificarcss;
 exports.imagenes = imagenes;
 exports.watchArchivos = watchArchivos;
 
