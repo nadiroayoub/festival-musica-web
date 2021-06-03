@@ -1,5 +1,10 @@
 .header {
     background-color: $verde;
+    &.fijo{
+        position: fixed;
+        width: 100%;
+        box-shadow: 0 .3rem .4rem #444;
+    }
     .contenido-header{
         padding: $separacion / 2  0;
         @include tablet{
