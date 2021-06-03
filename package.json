@@ -23,7 +23,8 @@
     "url": "https://github.com/nadiroayoub/festival-musica-web/issues"
   },
   "homepage": "https://github.com/nadiroayoub/festival-musica-web#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",

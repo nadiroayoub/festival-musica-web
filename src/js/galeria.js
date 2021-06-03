@@ -47,10 +47,12 @@ function mostrarImagen(e){
     // Cuando se da click, cerrar la imagen
     overlay.onclick = function(){
         overlay.remove();
+        body.classList.remove('fijar-body');
     }
     // Cuando se presiona, se cierra la imagen 
     cerrarImagen.onclick = function(){
         overlay.remove();
+        body.classList.remove('fijar-body');
     }
     overlay.onclick
     // Mostrar en el HTML

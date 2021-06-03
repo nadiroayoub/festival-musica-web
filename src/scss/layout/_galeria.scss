@@ -15,6 +15,9 @@
     @include desktop{
         @include grid(6, $separacion / 2)
     }
+    img:hover{
+        cursor:pointer;
+    }
 }
 .overlay {
     position: fixed;

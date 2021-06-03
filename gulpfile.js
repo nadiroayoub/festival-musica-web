@@ -34,7 +34,6 @@ function javascript(){
     return src(paths.js)
         .pipe( concat('bundle.js'))
         .pipe( dest('build/js') )
-        .pipe(notify({message: 'Fichero js creado'}))
 }
 
 function imagenes(){
