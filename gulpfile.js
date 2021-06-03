@@ -3,10 +3,12 @@ const sass = require('gulp-sass');
 const imagemin = require('gulp-imagemin');
 const notify = require('gulp-notify');
 const webp = require('gulp-webp');
+const concat = require('gulp-concat'); 
 
 const paths = {
     imagenes: 'src/img/**/*',
-    scss: './src/scss/**/*.scss'
+    scss: './src/scss/**/*.scss',
+    js: './src/js/**/*.js'
 }
 // Funciones
 function css(done){
@@ -28,6 +30,13 @@ function minificarcss(){
     done();
 }
 
+function javascript(){
+    return src(paths.js)
+        .pipe( concat('bundle.js'))
+        .pipe( dest('build/js') )
+        .pipe(notify({message: 'Fichero js creado'}))
+}
+
 function imagenes(){
     return src(paths.imagenes)
         .pipe(imagemin())
@@ -44,10 +53,11 @@ function versionWebp(){
 
 function watchArchivos(){
     watch( paths.scss, css );
+    watch( paths.js, javascript);
 }
 exports.css = css;
 exports.minificarcss = minificarcss;
 exports.imagenes = imagenes;
 exports.watchArchivos = watchArchivos;
 
-exports.default = series(css, imagenes, versionWebp, watchArchivos)
+exports.default = series(css, javascript, imagenes, versionWebp, watchArchivos)
