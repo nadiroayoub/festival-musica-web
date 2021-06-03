@@ -12,4 +12,9 @@
     @media (min-width: $desktop) {
         @content
     }
+};
+@mixin grid($columnas, $especiado){
+    display: grid;
+    grid-template-columns: repeat( $columnas, 1fr);
+    gap: $especiado;
 }
