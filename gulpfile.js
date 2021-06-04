@@ -11,6 +11,10 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 
+// Utilidades JS
+const terser = require('gulp-terser-js');
+const rename = require('gulp-rename');
+
 const paths = {
     imagenes: 'src/img/**/*',
     scss: './src/scss/**/*.scss',
@@ -30,7 +34,11 @@ function css(){
 
 function javascript(){
     return src(paths.js)
+        .pipe( sourcemaps.init())
         .pipe( concat('bundle.js'))
+        .pipe( terser())
+        .pipe(sourcemaps.write('.'))
+        .pipe( rename({suffix:'.min'}))
         .pipe( dest('build/js') )
 }
 
@@ -52,6 +60,7 @@ function watchArchivos(){
     watch( paths.scss, css );
     watch( paths.js, javascript);
 }
+
 exports.css = css;
 exports.imagenes = imagenes;
 exports.watchArchivos = watchArchivos;
